@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: eventarz-eureka
+  name: eventarz-eureka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eventarz-eureka
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: eventarz-eureka
+    spec:
+      containers:
+        - image: eventarzregistry.azurecr.io/eventarz-eureka:latest
+          name: eventarz-eureka
+          resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: eventarz-eureka
+  name: eventarz-eureka
+spec:
+  ports:
+    - name: 8761-8761
+      port: 8761
+      protocol: TCP
+      targetPort: 8761
+  selector:
+    app: eventarz-eureka
+  type: ClusterIP

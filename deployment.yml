@@ -18,7 +18,7 @@ spec:
         app: eventarz-eureka
     spec:
       containers:
-        - image: eventarzregistry.azurecr.io/eventarz-eureka:latest
+        - image: eventarzcontainerregistry.azurecr.io/eventarz-eureka:latest
           name: eventarz-eureka
           resources: {}
 status: {}

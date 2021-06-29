@@ -21,6 +21,9 @@ spec:
         - image: eventarzcontainerregistry.azurecr.io/eventarz-eureka:latest
           name: eventarz-eureka
           resources: {}
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
 status: {}
 ---
 apiVersion: v1

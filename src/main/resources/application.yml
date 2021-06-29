@@ -1,6 +1,6 @@
 spring:
   application:
-    name: "eventarz-eureka-server"
+    name: "eventarz-eureka"
 
 server:
   port: 8761

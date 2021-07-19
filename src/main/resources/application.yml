@@ -2,6 +2,11 @@ spring:
   application:
     name: "eventarz-eureka"
 
+logging:
+  pattern:
+    #    Simplified logging pattern without PID, thread name and logger name to make it readable on screenshots
+    console: "${CONSOLE_LOG_PATTERN:%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS}}){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"
+
 server:
   port: 8761
 
@@ -9,9 +14,7 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   instance:
-#    TODO: preferIpAddress only really comes into play on Kubernetes, but is it necessary to have it both here and on services?
-    preferIpAddress: true
     hostname: localhost
+  server:
+    enableSelfPreservation: false
